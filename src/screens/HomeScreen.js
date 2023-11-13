@@ -2,18 +2,11 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
-// import { NavigationContainer } from '@react-navigation/native';
-// import { createStackNavigator } from '@react-navigation/stack';
-// import Plotly from 'react-native-plotly';
-
-// import HomeScreen from './HomeScreen';
-// import DetailScreen from './DetailScreen';
-
-// const Stack = createStackNavigator();
 
 
 
-const App = () => {
+// const App = () => {
+  function HomeScreen() {
   const [count, setCount] = useState(0);
   const [dates, setDates] = useState([]); // 두번째 섹션에 날짜 저장
   const [graphData, setGraphData] = useState([]); // 세번째 섹션에 그래프 데이터 저장
@@ -30,14 +23,14 @@ const App = () => {
     const newDataPoint = { date: currentDate, value: count + 1 };
     setGraphData([...graphData, newDataPoint]);
 
-
   };
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
+      <StatusBar style="auto" />
+      {/* <View style={styles.header}>
         <Text style={styles.headerText}>홈</Text>
-      </View>
+      </View> */}
       <View style={styles.main}>
         <View style={styles.section}>
           <Text style={styles.sectionText}>{count}</Text>
@@ -95,23 +88,15 @@ const App = () => {
           </TouchableOpacity>
         </View>
       </View>
-      <View style={styles.footer}>
 
+      {/* <View style={styles.footer}>
         <Text style={styles.footerText}>홈</Text>
         <Text style={styles.footerText}>달력</Text>
         <Text style={styles.footerText}>통계</Text>
         <Text style={styles.footerText}>금연</Text>
         <Text style={styles.footerText}>설정</Text>
-
-        {/* <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen name="Detail" component={DetailScreen} />
-          </Stack.Navigator>
-        </NavigationContainer> */}
-
-      </View>
-      <StatusBar style="auto" />
+      </View> */}
+      
     </View>
   );
 };
@@ -177,4 +162,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default HomeScreen;
